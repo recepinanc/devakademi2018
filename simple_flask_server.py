@@ -10,7 +10,6 @@ model = pickle.load(open("regression_model.pkl","rb"))
 # define a predict function as an endpoint
 @app.route("/predict", methods=["GET","POST"])
 def predict():
-    
     if 'ad' in flask.request.get_json().keys() :
         #feature_array = flask.request.get_json()['feature_array']
         ad_params = {
@@ -28,7 +27,7 @@ def predict():
                     }
 
         ad = flask.request.get_json()['ad']
-        
+
         # Parse Advertisement
         bid = ad['bid']
         budget = ad['budget']

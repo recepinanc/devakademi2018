@@ -54,7 +54,7 @@ X_train = scaler.fit_transform(X_train)
 
 print("Scaled attributes.")
 
-pickle.dump(scaler, open('min_max_scaler.sav', 'wb'))
+pickle.dump(scaler, open('min_max_scaler.sav', 'wb'), protocol=2)
 
 print("Scaler saved.")
 
@@ -91,7 +91,7 @@ print("R2: ", r2_score(y_test, y_pred))
 print("Cross Validation Score (cv=10): ", cross_val_score(best_regressor, scaled_test_set, y_test, cv=10))
 
 #serializing our model to a file called model.pkl
-pickle.dump(best_regressor, open("regression_model.pkl","wb"))
+pickle.dump(best_regressor, open("regression_model.pkl","wb"), protocol=2)
 
 #loading a model from a file called model.pkl
 model = pickle.load(open("regression_model.pkl","rb"))
